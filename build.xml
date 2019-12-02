@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project>
+
+   <target name="clean">
+       <delete dir="build"/>
+   </target>
+
+   <target name="compile">
+       
+       <mkdir dir="build/classes"/>   
+         
+       <javac includeantruntime="false" srcdir="build" destdir="build/classes"/>
+   </target>
+
+   <target name="jar">
+       <mkdir dir="build/jar"/>
+       <jar destfile="build/jar/JavaBank.jar" >
+           <manifest>
+               <attribute name="account" value= "JavaBank.Account"/>
+               <attribute name="savingsaccount" value = "JavaBank.SavingsAcount"/>
+               <attribute name="checkingaccount" value = "JavaBankChecking_Account"/>
+               <attribute name="implement-bank" value = "JavaBank.Bank"/>
+               <attribute name="main" value = "JavaBank.JavaBank"/>
+           </manifest>
+       </jar>
+   </target>
+
+   <target name="run">
+       <java jar="build/jar/JavaBank.jar" fork="true"/>
+   </target>
+
+</project>
